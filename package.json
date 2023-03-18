@@ -1,0 +1,43 @@
+{
+  "name": "sll-js",
+  "version": "0.9.1",
+  "description": "Singly Linked List - Javascript or Typescript",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "webpack --config webpack.config.js"
+  },
+  "types": "./types.d.ts",
+  "keywords": [
+    "dataStructure",
+    "js dataStructure",
+    "linked list",
+    "singly linked list",
+    "singly linked list js",
+    "algorithms"
+  ],
+  "author": "divinity6 Hoon",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-transform-runtime": "^7.9.0",
+    "@babel/polyfill": "^7.8.7",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-typescript": "^7.13.0",
+    "@babel/register": "^7.9.0",
+    "@babel/runtime": "^7.9.2",
+    "@types/node": "^14.14.35",
+    "@types/webpack": "^4.41.12",
+    "@types/webpack-env": "^1.15.2",
+    "core-js": "3.6.5",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-add-module-exports": "^1.0.0",
+    "babel-plugin-class-display-name": "^2.1.0",
+    "babel-plugin-istanbul": "^6.0.0",
+    "typescript": "3.8.3",
+    "ts-loader": "^7.0.1",
+    "tslint": "^6.1.1",
+    "webpack": "^5.76.2",
+    "webpack-cli": "^5.0.1"
+  },
+  "dependencies": {}
+}
