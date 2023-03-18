@@ -1,9 +1,10 @@
 {
   "presets": [
     ["@babel/preset-env", {
-      "modules": "umd",
       "useBuiltIns": "entry",
-      "corejs": 3
+      "corejs": 3,
+      "exclude": ["proposal-dynamic-import"],
+      "targets" : { "node" : "current" }
     }]
   ],
   "plugins": [

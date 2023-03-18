@@ -1,10 +1,16 @@
 const path = require( 'path' );
-
+// terser-webpack-plugin 플러그인 추가
+const TerserPlugin = require('terser-webpack-plugin');
 module.exports = {
+    // production
     mode : "development",
-    entry : "./src/index.ts",
+    entry : {
+        "main" : path.resolve( __dirname , "./src/index.ts" ),
+        "main.min" : path.resolve( __dirname , "./src/index.ts" )
+    },
     output : {
-        filename: 'main.js',
+        filename: '[name].js',
+        publicPath: '/',
         path : path.resolve( __dirname , 'dist' )
     },
     resolve: {
@@ -30,6 +36,14 @@ module.exports = {
                 ]
             }
         ]
-    }
+    },
+    optimization: {
+        minimize: true,
+        minimizer: [
+            new TerserPlugin({
+                include: /\.min\.js$/
+            }),
+        ],
+    },
 }
 
