@@ -5,7 +5,8 @@
       "corejs": 3,
       "exclude": ["proposal-dynamic-import"],
       "targets" : { "node" : "current" }
-    }]
+    }],
+    "@babel/preset-typescript"
   ],
   "plugins": [
     "babel-plugin-add-module-exports",

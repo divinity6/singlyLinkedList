@@ -5,6 +5,7 @@
     "target": "es5",
     "declaration": false,
     "isolatedModules": false,
+    "allowJs": true,
 
     "resolveJsonModule": true,
 
