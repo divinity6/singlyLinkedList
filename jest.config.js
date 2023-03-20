@@ -44,6 +44,7 @@ module.exports = {
     // jest 가 테스트파일을 탐지하는데 사용하는 전역 패턴들입니다
     testMatch: [
         '<rootDir>/**/*.test.(js|jsx|ts|tsx)',
+        '<rootDir>/**/*.spec.(js|jsx|ts|tsx)',
         '<rootDir>/(tests/unit/**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx))',
     ],
 

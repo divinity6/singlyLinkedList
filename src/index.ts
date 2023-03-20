@@ -23,6 +23,7 @@ export default class SinglyLinkedList<T> implements SinglyLinkedListI<T> {
         this.length = 0;
     }
 
+    /** 마지막 Node 를 삽입합니다 */
     public push( val : T ) : this {
         const newNode = new Node( val );
 
@@ -40,6 +41,7 @@ export default class SinglyLinkedList<T> implements SinglyLinkedListI<T> {
         return this;
     }
 
+    /** 마지막 Node 를 제거합니다 */
     public pop() : NodeI<T> | void {
         if ( 0 === this.length ){
             return;
@@ -67,6 +69,7 @@ export default class SinglyLinkedList<T> implements SinglyLinkedListI<T> {
         return removeNode;
     }
 
+    /** 첫번째 Node 를 제거합니다 */
     public shift() : NodeI<T> | void {
         if ( 0 === this.length ){
             return;
@@ -83,6 +86,7 @@ export default class SinglyLinkedList<T> implements SinglyLinkedListI<T> {
         return beforeHead;
     }
 
+    /** 첫번째 Node 를 삽입합니다 */
     public unshift( val : T ) : this {
         const newNode = new Node( val );
         if ( 0 === this.length ){
@@ -96,6 +100,7 @@ export default class SinglyLinkedList<T> implements SinglyLinkedListI<T> {
         return this;
     }
 
+    /** index Node 를 반환합니다 */
     public get( index : number ) : NodeI<T> | null {
         if ( 0 === this.length || 0 > index || index >= this.length ){
             return null;
@@ -108,6 +113,7 @@ export default class SinglyLinkedList<T> implements SinglyLinkedListI<T> {
         return foundNode;
     }
 
+    /** index Node 를 설정합니다 */
     public set( index : number , val : T ) : boolean {
         const foundNode = this.get( index );
 
@@ -118,6 +124,7 @@ export default class SinglyLinkedList<T> implements SinglyLinkedListI<T> {
         return false;
     }
 
+    /** index Node 를 삽입합니다 */
     public insert( index : number , val : T ) : boolean {
         if ( 0 > index || index > this.length ){
             return false;
@@ -142,6 +149,7 @@ export default class SinglyLinkedList<T> implements SinglyLinkedListI<T> {
         return true;
     }
 
+    /** index Node 를 제거합니다 */
     public remove( index : number ) : NodeI<T> | void {
         if ( 0 === this.length || 0 > index || index >= this.length ){
             return;
@@ -162,6 +170,7 @@ export default class SinglyLinkedList<T> implements SinglyLinkedListI<T> {
         return removeNode;
     }
 
+    /** index 부터 재정렬 후 index Node 를 반환합니다 */
     public rotate( index : number ) : NodeI<T> | null {
         if ( 0 === this.length ){
             return null;
@@ -202,6 +211,7 @@ export default class SinglyLinkedList<T> implements SinglyLinkedListI<T> {
         return foundNode;
     }
 
+    /** list 를 뒤집습니다 */
     public reverse() : this {
         let current = this.head;
         this.head = this.tail;

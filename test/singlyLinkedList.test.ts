@@ -6,7 +6,7 @@ describe( "----------------- SinglyLinkedList Unit Test -----------------" , () 
   let sll;
 
   beforeEach( () => {
-    sll = new SinglyLinkedList();
+    sll = new SinglyLinkedList<number>();
     sll.push( 5 );
     sll.push( 10 );
     sll.push( 15 );
