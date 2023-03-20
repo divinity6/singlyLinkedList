@@ -2,11 +2,11 @@ const path = require( 'path' );
 // terser-webpack-plugin 플러그인 추가
 const TerserPlugin = require('terser-webpack-plugin');
 module.exports = {
-    // production
-    mode : "development",
+
+    mode : "production",
     entry : {
-        "main" : path.resolve( __dirname , "./src/index.ts" ),
-        "main.min" : path.resolve( __dirname , "./src/index.ts" )
+        "sll-js" : path.resolve( __dirname , "./src/index.ts" ),
+        "sll-js.min" : path.resolve( __dirname , "./src/index.ts" )
     },
     output : {
         filename: '[name].js',

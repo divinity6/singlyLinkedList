@@ -1,4 +1,4 @@
-import { NodeI , SinglyLinkedListI } from '../types';
+import { NodeI , SllI } from '../types';
 
 class Node<T> implements NodeI<T> {
 
@@ -11,7 +11,8 @@ class Node<T> implements NodeI<T> {
     }
 }
 
-export default class SinglyLinkedList<T> implements SinglyLinkedListI<T> {
+/** SinglyLinkedList */
+export default class Sll<T> implements SllI<T> {
 
     public head : NodeI<T>;
     public tail : NodeI<T>;

@@ -2,7 +2,7 @@
   "name": "sll-js",
   "version": "0.9.1",
   "description": "Singly Linked List - Javascript or Typescript",
-  "main": "dist/main.js",
+  "main": "dist/sll-js.min.js",
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "test": "jest"
@@ -16,6 +16,11 @@
     "singly linked list js",
     "algorithms"
   ],
+  "homepage": "https://github.com/divinity6/singlyLinkedList",
+  "bugs" : {
+    "url" : "https://github.com/divinity6/singlyLinkedList/issues",
+    "email" : "divinity456@gmail.com"
+  },
   "author": "divinity6 Hoon",
   "license": "MIT",
   "devDependencies": {

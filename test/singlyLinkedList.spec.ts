@@ -1,10 +1,10 @@
 import {beforeEach, describe, expect, it} from '@jest/globals';
 const { performance } = require('perf_hooks');
-import SinglyLinkedList from "../src";
+import Sll from "../src";
 
 describe( "----------------- SinglyLinkedList Spec Test -----------------" , () => {
 
-  const sll = new SinglyLinkedList<string>();
+  const sll = new Sll<string>();
   const sllArr = [];
   const arr = [ "1 El" , "2 El" , "3 El" , "4 El" , "5 El" , "6 El" , "7 El" , "8 El" , "9 El" , "10 El" ];
   beforeEach( ()=> {

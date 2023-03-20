@@ -6,7 +6,7 @@ export interface NodeI<T> {
 
 
 
-export interface SinglyLinkedListI<T> {
+export interface SllI<T> {
 
   head : NodeI<T>;                                // 첫 번째 Node 입니다
   tail : NodeI<T>;                                // 마지막 Node 입니다

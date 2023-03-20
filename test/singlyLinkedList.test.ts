@@ -1,12 +1,12 @@
 import { describe , expect , it , beforeEach } from "@jest/globals";
-import SinglyLinkedList from "../src";
+import Sll from "../src";
 
 describe( "----------------- SinglyLinkedList Unit Test -----------------" , () => {
 
   let sll;
 
   beforeEach( () => {
-    sll = new SinglyLinkedList<number>();
+    sll = new Sll<number>();
     sll.push( 5 );
     sll.push( 10 );
     sll.push( 15 );
