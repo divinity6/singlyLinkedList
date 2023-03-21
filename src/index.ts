@@ -1,4 +1,5 @@
 import { NodeI , SllI } from '../types';
+import LinkedListIterator from "./listIterator";
 
 class Node<T> implements NodeI<T> {
 
@@ -18,10 +19,14 @@ export default class Sll<T> implements SllI<T> {
     public tail : NodeI<T>;
     public length : number;
 
+    private iterator : IterableIterator<NodeI<T>>;
+
     public constructor() {
         this.head = null;
         this.tail = null;
         this.length = 0;
+        [ 1 , 2 , 3 ].push( 5)
+        this.iterator = new LinkedListIterator<NodeI<T>>( this );
     }
 
     /** 마지막 Node 를 삽입합니다 */
@@ -229,6 +234,10 @@ export default class Sll<T> implements SllI<T> {
         }
 
         return this;
+    }
+
+    [Symbol.iterator]() {
+
     }
 
 }
