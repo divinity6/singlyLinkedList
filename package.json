@@ -1,8 +1,8 @@
 {
   "name": "sll-js",
-  "version": "0.9.1",
+  "version": "0.9.4",
   "description": "Singly Linked List - Javascript or Typescript",
-  "main": "dist/sll-js.min.js",
+  "main": "dist/sll-js.js",
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "test": "jest"

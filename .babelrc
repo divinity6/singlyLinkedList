@@ -1,10 +1,10 @@
 {
   "presets": [
     ["@babel/preset-env", {
+      "targets" : { "node" : "current" },
       "useBuiltIns": "entry",
-      "corejs": 3,
       "exclude": ["proposal-dynamic-import"],
-      "targets" : { "node" : "current" }
+      "corejs": 3
     }],
     "@babel/preset-typescript"
   ],

@@ -11,7 +11,9 @@ module.exports = {
     output : {
         filename: '[name].js',
         publicPath: '/',
-        path : path.resolve( __dirname , 'dist' )
+        path : path.resolve( __dirname , 'dist' ),
+        library: [ 'sll-js' ],
+        libraryTarget: 'umd',
     },
     resolve: {
         extensions: [ '.js' , '.ts' ]
