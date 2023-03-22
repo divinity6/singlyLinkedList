@@ -13,6 +13,22 @@ describe( "----------------- SinglyLinkedList Unit Test -----------------" , () 
     sll.push( 20 );
   } );
 
+  describe( '========== Iterator ==========' , ()=> {
+
+    it( "iteration 프로토콜을 준수합니다" , ()=>{
+      expect( sll[Symbol.iterator]().next().value.val ).toBe( 5 );
+    } );
+
+    it( "iterator 로 반복할 수 있습니다", () => {
+      const result = [];
+      for ( const node of sll ){
+        result.push( node.val );
+      }
+      expect( result ).toStrictEqual( [ 5 , 10 , 15 , 20 ] )
+    } )
+
+  } )
+
   describe( "========== Push ==========" , ()=> {
 
     it( "length 의 값은 push 메서드를 호출한 만큼이 된다" , ()=> {

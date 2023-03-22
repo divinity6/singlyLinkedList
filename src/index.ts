@@ -6,7 +6,7 @@ class Node<T> implements NodeI<T> {
     public val : T;
     public next : NodeI<T>;
 
-    constructor( val : T ) {
+    public constructor( val : T ) {
         this.val = val;
         this.next = null;
     }
@@ -17,23 +17,24 @@ export default class Sll<T> implements SllI<T> {
 
     public head : NodeI<T>;
     public tail : NodeI<T>;
-    public length : number;
+    private _length : number;
 
-    private iterator : IterableIterator<NodeI<T>>;
+    public get length() : number {
+        return this._length;
+    }
 
     public constructor() {
         this.head = null;
         this.tail = null;
-        this.length = 0;
-        [ 1 , 2 , 3 ].push( 5)
-        this.iterator = new LinkedListIterator<NodeI<T>>( this );
+        this._length = 0;
     }
 
     /** 마지막 Node 를 삽입합니다 */
     public push( val : T ) : this {
+
         const newNode = new Node( val );
 
-        if ( 0 === this.length ){
+        if ( 0 === this._length ){
             this.head = newNode;
         }
         else {
@@ -42,21 +43,21 @@ export default class Sll<T> implements SllI<T> {
 
         this.tail = newNode;
 
-        this.length += 1;
+        this._length += 1;
 
         return this;
     }
 
     /** 마지막 Node 를 제거합니다 */
     public pop() : NodeI<T> | void {
-        if ( 0 === this.length ){
+        if ( 0 === this._length ){
             return;
         }
 
         let removeNode = this.head;
         let newTailNode = removeNode;
 
-        for ( let count = 0; count < this.length - 1; count += 1 ){
+        for ( let count = 0; count < this._length - 1; count += 1 ){
             newTailNode = removeNode;
             removeNode = removeNode.next;
         }
@@ -65,9 +66,9 @@ export default class Sll<T> implements SllI<T> {
 
         this.tail.next = null;
 
-        this.length -= 1;
+        this._length -= 1;
 
-        if ( 0 === this.length ){
+        if ( 0 === this._length ){
             this.head = null;
             this.tail = null;
         }
@@ -77,17 +78,17 @@ export default class Sll<T> implements SllI<T> {
 
     /** 첫번째 Node 를 제거합니다 */
     public shift() : NodeI<T> | void {
-        if ( 0 === this.length ){
+        if ( 0 === this._length ){
             return;
         }
-        else if ( 1 === this.length ){
+        else if ( 1 === this._length ){
             this.tail = null;
         }
 
         const beforeHead = this.head;
         this.head = beforeHead.next;
 
-        this.length -= 1;
+        this._length -= 1;
 
         return beforeHead;
     }
@@ -95,20 +96,20 @@ export default class Sll<T> implements SllI<T> {
     /** 첫번째 Node 를 삽입합니다 */
     public unshift( val : T ) : this {
         const newNode = new Node( val );
-        if ( 0 === this.length ){
+        if ( 0 === this._length ){
             this.tail = newNode;
         }
         newNode.next = this.head;
         this.head = newNode;
 
-        this.length += 1;
+        this._length += 1;
 
         return this;
     }
 
     /** index Node 를 반환합니다 */
     public get( index : number ) : NodeI<T> | null {
-        if ( 0 === this.length || 0 > index || index >= this.length ){
+        if ( 0 === this._length || 0 > index || index >= this._length ){
             return null;
         }
 
@@ -132,14 +133,14 @@ export default class Sll<T> implements SllI<T> {
 
     /** index Node 를 삽입합니다 */
     public insert( index : number , val : T ) : boolean {
-        if ( 0 > index || index > this.length ){
+        if ( 0 > index || index > this._length ){
             return false;
         }
         else if ( 0 === index ){
             this.unshift( val );
             return true;
         }
-        else if ( index === this.length ){
+        else if ( index === this._length ){
             this.push( val );
             return true;
         }
@@ -150,54 +151,54 @@ export default class Sll<T> implements SllI<T> {
         prevNode.next = newNode;
         newNode.next = nextNode;
 
-        this.length += 1;
+        this._length += 1;
 
         return true;
     }
 
     /** index Node 를 제거합니다 */
     public remove( index : number ) : NodeI<T> | void {
-        if ( 0 === this.length || 0 > index || index >= this.length ){
+        if ( 0 === this._length || 0 > index || index >= this._length ){
             return;
         }
 
         if ( 0 === index ){
             return this.shift();
         }
-        else if ( this.length - 1 === index ){
+        else if ( this._length - 1 === index ){
             return this.pop();
         }
 
         const beforeNode = this.get( index - 1 );
         const removeNode = beforeNode.next;
         beforeNode.next = removeNode.next;
-        this.length -= 1;
+        this._length -= 1;
 
         return removeNode;
     }
 
     /** index 부터 재정렬 후 index Node 를 반환합니다 */
     public rotate( index : number ) : NodeI<T> | null {
-        if ( 0 === this.length ){
+        if ( 0 === this._length ){
             return null;
         }
 
-        const _startIndex = index % this.length;
+        const _startIndex = index % this._length;
         let _endIndex;
         let startIndex = ( 0 === _startIndex ) ? index : _startIndex;
         let endIndex = startIndex - 1;
 
         if ( 0 > index ){
-            startIndex = this.length + startIndex;
+            startIndex = this._length + startIndex;
             _endIndex =  startIndex - 1;
-            endIndex = 0 > _endIndex ? ( this.length - 1 ) : _endIndex;
+            endIndex = 0 > _endIndex ? ( this._length - 1 ) : _endIndex;
         }
 
         const beforeHead = this.head;
         let currentNode = this.head;
         let foundNode = null;
 
-        for ( let count = 0; count < this.length; count += 1 ){
+        for ( let count = 0; count < this._length; count += 1 ){
             if ( startIndex === count ){
                 this.head = currentNode;
                 foundNode = currentNode;
@@ -206,7 +207,7 @@ export default class Sll<T> implements SllI<T> {
                 this.tail = currentNode;
             }
 
-            if ( ( this.length - 1 ) === count ){
+            if ( ( this._length - 1 ) === count ){
                 currentNode.next = beforeHead;
             }
             currentNode = currentNode.next;
@@ -226,7 +227,7 @@ export default class Sll<T> implements SllI<T> {
         let prev = null;
         let next;
 
-        for ( let count = 0; count < this.length; count += 1 ){
+        for ( let count = 0; count < this._length; count += 1 ){
             next = current.next;
             current.next = prev;
             prev = current;
@@ -236,8 +237,8 @@ export default class Sll<T> implements SllI<T> {
         return this;
     }
 
-    [Symbol.iterator]() {
-
+    public [ Symbol.iterator ]() : IterableIterator<NodeI<T>> {
+        return new LinkedListIterator<T>( this );
     }
 
 }

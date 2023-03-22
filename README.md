@@ -5,6 +5,8 @@
 자바스크립트로 구현한 단반향 연결 구조인 singlyLinkedList 자료구조입니다
 
 
+해당 자료구조는 이터러블 프로토콜을 준수합니다
+
 ### Installation
 
 ---
@@ -16,25 +18,21 @@ npm i sll-js --save
 ### Using
 
 ````javascript
-
 import Sll from 'sll-js';
 
 const sll = new Sll();
 
 sll.push( 100 ).push( 300 );
 
+console.log( sll.tail ) // 300;
 ````
 
-### properties
+### Properties
 
 ````typescript
-
-head : NodeI<T>;      // 첫 번째 Node 입니다
-
-tail : NodeI<T>;      // 마지막 Node 입니다
-
-length : number;      // linkedList 의 길이입니다
-
+head : NodeI<T>;            // 첫 번째 Node 입니다
+tail : NodeI<T>;            // 마지막 Node 입니다
+get length() : number;      // linkedList 의 길이입니다
 ````
 
 ### Methods
