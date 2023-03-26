@@ -15,6 +15,13 @@
 npm i sll-js --save
 ````
 
+### Test
+
+````powershell
+npm run test
+````
+
+
 ### Using
 
 ````javascript
