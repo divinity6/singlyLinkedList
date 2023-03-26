@@ -1,19 +1,19 @@
-import { NodeI , SllI } from "../types";
+import { Node , LinkedList } from "../types";
 /**
  * - Iterator 프로토콜을 만족하는 iterable 객체 입니다
  */
-export default class LinkedListIterator<T> implements IterableIterator<NodeI<T>> {
+export default class LinkedListIterator<T> implements IterableIterator<Node<T>> {
 
-    private list : SllI<T>;
+    private list : LinkedList<T>;
 
-    private currentNode : NodeI<T>;
+    private currentNode : Node<T>;
 
     public constructor( list ) {
         this.list = list;
         this.currentNode = list.head;
     }
 
-    public next = () : IteratorResult<NodeI<T>,NodeI<T>> => {
+    public next = () : IteratorResult<Node<T>,Node<T>> => {
         const currentNode = this.currentNode;
         if ( currentNode ){
             this.currentNode = currentNode.next;
@@ -22,7 +22,7 @@ export default class LinkedListIterator<T> implements IterableIterator<NodeI<T>>
         return { value : currentNode , done : true };
     }
 
-    [Symbol.iterator](): IterableIterator<NodeI<T>> {
+    [Symbol.iterator](): IterableIterator<Node<T>> {
         return;
     }
 }
