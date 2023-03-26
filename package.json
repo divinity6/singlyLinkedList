@@ -1,6 +1,6 @@
 {
   "name": "sll-js",
-  "version": "0.9.7",
+  "version": "0.9.9",
   "description": "Singly Linked List - Javascript or Typescript",
   "main": "dist/sll-js.js",
   "scripts": {
